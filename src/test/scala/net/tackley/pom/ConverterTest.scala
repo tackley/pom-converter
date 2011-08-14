@@ -5,7 +5,7 @@ import org.scalatest.FlatSpec
 
 class ConverterTest extends FlatSpec with ShouldMatchers {
   "converter" should "be able to convert simple pom" in {
-    val result = Converter.convert(ExamplePoms.simplePom)
+    val result = Converter.convert(new Pom(ExamplePoms.simplePom))
     result should be (
       """libraryDependencies ++= Seq(""" ::
       """  "org.scala-lang" % "scala-library" % "2.8.1",""" ::
@@ -17,7 +17,7 @@ class ConverterTest extends FlatSpec with ShouldMatchers {
 
 
   it should "perform property replacement" in {
-    val result = Converter.convert(ExamplePoms.pomWithPropeties)
+    val result = Converter.convert(new Pom(ExamplePoms.pomWithPropeties))
     result should be (
       """libraryDependencies ++= Seq(""" ::
       """  "org.scala-lang" % "scala-library" % "2.8.1",""" ::
@@ -28,4 +28,6 @@ class ConverterTest extends FlatSpec with ShouldMatchers {
    )
 
   }
+
+
 }

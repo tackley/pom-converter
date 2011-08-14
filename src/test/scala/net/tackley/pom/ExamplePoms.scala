@@ -64,4 +64,51 @@ object ExamplePoms {
     </project>
 
 
+  val pomWithProfile =
+    <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+      <modelVersion>4.0.0</modelVersion>
+
+      <profiles>
+        <profile>
+          <id>continuous-integration</id>
+          <properties>
+            <database.load.mode>auto</database.load.mode>
+          </properties>
+        </profile>
+      </profiles>
+
+      <properties>
+        <scala.version>2.8.1</scala.version>
+      </properties>
+
+    </project>
+
+  val pomWithSubmodules =
+    <project xmlns="http://maven.apache.org/POM/4.0.0"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                          http://maven.apache.org/maven-v4_0_0.xsd">
+      <modelVersion>4.0.0</modelVersion>
+      <profiles>
+        <profile>
+          <id>full-build</id>
+          <activation>
+            <activeByDefault>true</activeByDefault>
+          </activation>
+          <modules>
+            <module>a</module>
+            <module>b</module>
+            <module>c</module>
+          </modules>
+        </profile>
+        <profile>
+          <id>ftr-build</id>
+          <modules>
+            <module>b</module>
+            <module>d</module>
+          </modules>
+        </profile>
+      </profiles>
+    </project>
 }
