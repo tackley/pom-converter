@@ -9,7 +9,8 @@ class DependencyTest extends FlatSpec with ShouldMatchers {
     val dependencies = Dependency.fromPom(ExamplePoms.simplePom)
     dependencies should be (List(
       Dependency("org.scala-lang", "scala-library", "2.8.1"),
-      Dependency("org.scalatest", "scalatest", "1.3", Some("test"))
+      Dependency("org.scalatest", "scalatest", "1.3", scope = Some("test")),
+      Dependency("net.sf.json-lib", "json-lib", "1.1", classifier = Some("jdk15"))
     ))
   }
 

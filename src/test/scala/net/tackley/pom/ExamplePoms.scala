@@ -25,6 +25,14 @@ object ExamplePoms {
           <version>1.3</version>
           <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>net.sf.json-lib</groupId>
+            <artifactId>json-lib</artifactId>
+            <version>1.1</version>
+            <classifier>jdk15</classifier>
+        </dependency>
+
       </dependencies>
     </project>
 

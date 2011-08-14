@@ -9,7 +9,8 @@ class ConverterTest extends FlatSpec with ShouldMatchers {
     result should be (
       """libraryDependencies ++= Seq(""" ::
       """  "org.scala-lang" % "scala-library" % "2.8.1",""" ::
-      """  "org.scalatest" % "scalatest" % "1.3" % "test"""" ::
+      """  "org.scalatest" % "scalatest" % "1.3" % "test",""" ::
+      """  "net.sf.json-lib" % "json-lib" % "1.1" classifier "jdk15"""" ::
       """)""" ::
       Nil
    )
